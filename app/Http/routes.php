@@ -38,6 +38,11 @@ $api->version('v1', function ($api) {
     });
 
 
+    $api->group([], function ($api) {
+        $api->get('products', '\App\Http\Controllers\ProductController@index');
+    });
+
+
 /*    Route::post('login', 'Api\AuthController@login');
 
     Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function() {
