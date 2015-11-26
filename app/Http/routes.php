@@ -11,10 +11,15 @@
 |
 */
 
-use App\Attribute;
 
 Route::get('/debug', function () {
-    return Attribute::all()->random(1);
+    $client = new GuzzleHttp\Client();
+    $res = $client->request('GET', 'http://api.football-data.org/v1/soccerseasons/');
+    $body = json_decode($res->getBody(),true);
+    foreach($body as $item){
+        echo $item['caption'] . "<br/>";
+    }
+//    return $res;
 });
 
 
