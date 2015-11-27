@@ -19,7 +19,7 @@ class ProductsTableSeeder extends Seeder
     {
         DB::table('products')->delete();
 
-        for ($i = 0; $i <= 50; $i++) {
+        for ($i = 0; $i <= 5; $i++) {
             $product = new Product;
             $product->name = $this->faker->sentence($this->faker->numberBetween(4, 11));
             $product->sku = ucwords($this->faker->randomLetter()) . ucwords($this->faker->randomLetter()) . $this->faker->randomNumber(5);
