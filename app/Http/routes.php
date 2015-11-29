@@ -23,6 +23,10 @@ Route::get('/debug', function () {
 });
 
 
+Route::get('admin', function () {
+    return view('admin/dashboard');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
