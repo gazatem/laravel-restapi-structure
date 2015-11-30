@@ -22,12 +22,22 @@ Route::get('/debug', function () {
 //    return $res;
 });
 
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Entrust::routeNeedsRole('admin*', array('admin'), Redirect::to('/auth/login'), false);
 
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+
+    Route::controller('/', 'AdminDashboardController');
+    //Route::get('/manage', ['middleware' => ['permission:manage-admins'], 'uses' => 'AdminController@manageAdmins']);
+});
 $api = app('Dingo\Api\Routing\Router');
 
 

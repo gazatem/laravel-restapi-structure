@@ -148,6 +148,7 @@ return [
         Dingo\Api\Provider\LaravelServiceProvider::class,
 
         'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
+        'Zizaco\Entrust\EntrustServiceProvider'
     ],
 
     /*
@@ -197,7 +198,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
-       'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth'
+       'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
+       'Entrust' => 'Zizaco\Entrust\EntrustFacade'
+
     ],
 
 ];

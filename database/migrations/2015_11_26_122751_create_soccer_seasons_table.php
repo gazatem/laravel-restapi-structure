@@ -18,7 +18,6 @@ class CreateSoccerSeasonsTable extends Migration
             $table->string('league');
             $table->string('year');
             $table->date('lastUpdated');
-            $table->date('links');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateSoccerSeasonsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('soccerseasons');
+        Schema::drop('soccer_seasons');
     }
 }
