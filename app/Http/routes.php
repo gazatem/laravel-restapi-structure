@@ -31,9 +31,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Entrust::routeNeedsRole('admin*', array('admin'), Redirect::to('/auth/login'), false);
+//Entrust::routeNeedsRole('admin*', array('admin'), Redirect::to('/auth/login'), false);
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin'], function() {
 
     Route::controller('/', 'AdminDashboardController');
     //Route::get('/manage', ['middleware' => ['permission:manage-admins'], 'uses' => 'AdminController@manageAdmins']);
